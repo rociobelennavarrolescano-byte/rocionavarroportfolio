@@ -1,0 +1,580 @@
+/* ============================================
+   ROCIO NAVARRO — PORTFOLIO  |  style.css
+   ============================================ */
+
+/* --- RESET & BASE --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #c9cc9f;
+  font-family: 'Lexend Deca', sans-serif;
+  color: #600915;
+  overflow-x: hidden;
+}
+
+/* --- VARIABLES --- */
+:root {
+  --rojo:      #600915;
+  --rosa:      #b76e86;
+  --azul:      #b8d4fe;
+  --verde:     #c9cc9f;
+  --rojo-claro:#a74f3d;
+  --blanco:    #f5f0eb;
+  --radius:    20px;
+  --borde:     5px dotted var(--rosa);
+}
+
+/* --- LINKS --- */
+a:link    { color: var(--rojo);       text-decoration: none; transition: color 0.3s ease; }
+a:visited { color: var(--rojo-claro); text-decoration: none; }
+a:hover   { color: var(--rosa);       text-decoration: underline; }
+a:active  { color: var(--rosa); }
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: rgba(201, 204, 159, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px dotted var(--rosa);
+}
+
+.nav-logo {
+  font-family: 'Bitcount Grid Double', system-ui;
+  font-size: 28px;
+  color: var(--rojo);
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a {
+  color: var(--rojo);
+  text-decoration: none;
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--rosa);
+  letter-spacing: 1.5px;
+  border-bottom-color: var(--rosa);
+  text-decoration: none;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--azul);
+  border-bottom: 5px dotted var(--rosa);
+}
+
+.hero-bg-text {
+  position: absolute;
+  font-family: 'Bitcount Grid Double', system-ui;
+  font-size: clamp(120px, 20vw, 280px);
+  color: rgba(183, 110, 134, 0.1);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -4px;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translateX(-3%); }
+  to   { transform: translateX(3%); }
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: heroEntrada 1.2s ease both;
+}
+
+@keyframes heroEntrada {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+  font-family: 'Bitcount Grid Double', system-ui;
+  font-size: clamp(64px, 12vw, 140px);
+  font-weight: 300;
+  color: var(--rojo);
+  line-height: 1;
+  letter-spacing: 4px;
+}
+
+.hero-sub {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 300;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--rosa);
+  margin-top: -8px;
+}
+
+.hero-scroll-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 40px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rojo) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  animation: bounce 2.4s ease-in-out infinite;
+  transition: color 0.3s ease;
+}
+
+.hero-scroll-btn:hover {
+  color: var(--rosa) !important;
+  text-decoration: none !important;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+
+/* ============================================
+   SECCIONES
+   ============================================ */
+.seccion {
+  padding: 100px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.seccion-oscura {
+  background-color: var(--rojo);
+  max-width: 100%;
+  padding: 80px 60px;
+}
+
+.seccion-oscura .titulo-seccion {
+  color: var(--azul);
+}
+
+.seccion-oscura .subtitulo-seccion {
+  color: rgba(184, 212, 254, 0.6);
+}
+
+.seccion-titulo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.titulo-seccion {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  color: #b8d4fe;
+  margin-bottom: 8px;
+}
+
+.subtitulo-seccion {
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: rgba(96, 9, 21, 0.55);
+  margin: 10px 0px -20px 0px;
+}
+
+/* ============================================
+   BLOQUE SOBRE MÍ
+   ============================================ */
+.bloque {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 50px;
+  background-color: var(--azul);
+  border: var(--borde);
+  border-radius: var(--radius);
+  box-shadow: 8px 8px 0px var(--rosa);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.bloque:hover {
+  transform: translateY(-4px);
+  box-shadow: 12px 12px 0px var(--rosa);
+}
+
+.texto {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.imagen {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: var(--radius);
+  border: var(--borde);
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.imagen img:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+
+/* --- H1 (para páginas secundarias si se necesita) --- */
+h1 {
+  color: var(--rojo);
+  font-size: 80px;
+  font-family: 'Bitcount Grid Double', system-ui;
+  background-color: var(--azul);
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  border-radius: var(--radius);
+  border: var(--borde);
+}
+
+/* --- H2 dentro del bloque --- */
+h2 {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--azul);
+  background-color: var(--rojo);
+  padding: 14px 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+p {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--rojo);
+}
+
+/* ============================================
+   VIDEO
+   ============================================ */
+.video-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  border: 5px dotted rgba(184, 212, 254, 0.4);
+  display: block;
+}
+
+.video-caption {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: rgba(184, 212, 254, 0.5);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============================================
+   SPOTIFY
+   ============================================ */
+.spotify-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.spotify-wrapper iframe {
+  border-radius: var(--radius) !important;
+  border: var(--borde);
+  width: 100%;
+}
+
+/* ============================================
+   CTA PROYECTOS
+   ============================================ */
+.seccion-cta {
+  text-align: center;
+  padding: 80px 40px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta-label {
+  font-size: 25px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #600915;
+  font-weight: 300;
+}
+
+/* ============================================
+   BOTÓN ESTRELLA SVG
+   ============================================ */
+.botones-svg {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: row;
+}
+.boton-svg {
+  display: flex;
+  padding: 0px 10px;
+  transition: transform 0.4s ease;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.boton-svg:hover {
+  transform: rotate(20deg) scale(1.08);
+  text-decoration: none !important;
+}
+
+.boton-svg path {
+  fill: var(--azul);
+  stroke: var(--rosa);
+  stroke-width: 20;
+  stroke-dasharray: 5 40;
+  stroke-linecap: round;
+  transition: fill 0.4s ease, stroke 0.4s ease;
+}
+
+.boton-svg text {
+  fill: var(--rojo);
+  font-family: 'Bitcount Grid Double', system-ui;
+  font-size: 90px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.boton-svg:hover path {
+  fill: var(--rosa);
+  stroke: var(--rojo);
+}
+
+.boton-svg:hover text {
+  fill: var(--azul);
+}
+
+/* ============================================
+   GRILLA PROYECTOS
+   ============================================ */
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.proyecto-card {
+  background-color: var(--azul);
+  border: var(--borde);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 6px 6px 0px var(--rosa);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0px var(--rosa);
+}
+
+.card-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--rosa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bitcount Grid Double', system-ui;
+  font-size: 60px;
+  color: var(--azul);
+  opacity: 0.5;
+}
+
+.card-info {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-info h3 {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rojo);
+}
+
+.card-info p {
+  font-size: 13px;
+  color: rgba(96, 9, 21, 0.7);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background-color: var(--rojo);
+  color: var(--azul);
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.footer a:link,
+.footer a:visited {
+  color: rgba(184, 212, 254, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--azul);
+  text-decoration: none;
+}
+
+/* ============================================
+   ANIMACIONES DE SCROLL (fade-in)
+   ============================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 14px 20px;
+  }
+
+  .nav-links {
+    gap: 14px;
+    font-size: 12px;
+  }
+
+  .seccion {
+    padding: 70px 20px;
+  }
+
+  .bloque {
+    flex-direction: column;
+    padding: 30px 24px;
+  }
+
+  .texto,
+  .imagen {
+    width: 100%;
+  }
+
+  .imagen img {
+    max-width: 220px;
+  }
+
+  .seccion-oscura {
+    padding: 60px 24px;
+  }
+}
+.botones-nav-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  padding: 40px 20px 60px;
+}
+.servicio-item {
+  width: 100%;
+  padding: 20px 24px;
+  border-left: 4px solid var(--rosa);
+  transition: border-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.servicio-item:hover {
+  border-left-color: var(--rojo);
+  padding-left: 32px;
+}
+
+.servicio-titulo {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rojo);
+  margin-bottom: 8px;
+}
